@@ -1,3 +1,6 @@
+from django.http import HttpResponse
+def home(request):
+    return HttpResponse('<h1>Welcome to Octofit Tracker Backend</h1><p>API endpoints are available at /api/</p>')
 """octofit_tracker URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -50,6 +53,7 @@ def workouts_list(request):
     return JsonResponse({'url': f'https://{codespace_name}-8000.app.github.dev/api/workouts/', 'data': data})
 
 urlpatterns = [
+    path('', home),
     path('admin/', admin.site.urls),
     path('api/', api_base_url),
     path('api/activities/', activities_list),
